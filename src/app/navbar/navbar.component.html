@@ -4,9 +4,30 @@
   >
     <div class="fs-5 fw-medium p-3">Employee Management System</div>
     <div class="d-flex align-items-center">
-      <button type="button" class="ms-2 me-2 nav-link" [ngClass]="{ 'active' : isHome }" (click)="openHome()">Home</button>
-      <button type="button" class="ms-2 me-2 nav-link" [ngClass]="{ 'active' : isEmployee }"(click)="openEmployee()">Employees</button>
-      <button type="button" class="ms-2 me-2 nav-link" >Designations</button>
+      <button
+        type="button"
+        class="ms-2 me-2 nav-link"
+        [ngClass]="{ active: isHome }"
+        (click)="openHome()"
+      >
+        Home
+      </button>
+      <button
+        type="button"
+        class="ms-2 me-2 nav-link"
+        [ngClass]="{ active: isEmployee }"
+        (click)="openEmployee()"
+      >
+        Employees
+      </button>
+      <button
+        type="button"
+        class="ms-2 me-2 nav-link"
+        [ngClass]="{ active: isDesignation }"
+        (click)="openDesignation()"
+      >
+        Designations
+      </button>
     </div>
   </div>
 </nav>
