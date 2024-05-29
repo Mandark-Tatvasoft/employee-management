@@ -5,6 +5,7 @@ import { CreateEmployeeComponent } from './create-employee/create-employee.compo
 import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { DesignationComponent } from './designation/designation.component';
 import { CreateDesignationComponent } from './create-designation/create-designation.component';
+import { EditDesignationComponent } from './edit-designation/edit-designation.component';
 
 export const routes: Routes = [
   {
@@ -30,5 +31,9 @@ export const routes: Routes = [
   {
     path: 'addDesignation',
     component: CreateDesignationComponent,
+  },
+  {
+    path: 'editDesignation/:id',
+    component: EditDesignationComponent,
   },
 ];

@@ -32,4 +32,8 @@ export class DesignationComponent implements OnInit {
   addDesignation() {
     this.router.navigate(['addDesignation']);
   }
+
+  editDesignation(id: number) {
+    this.router.navigate(['editDesignation', id]);
+  }
 }

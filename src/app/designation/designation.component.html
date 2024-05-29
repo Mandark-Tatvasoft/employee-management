@@ -22,7 +22,13 @@
           {{ item.designationName }}
         </td>
         <td class="text-end w-25">
-          <button type="button" class="btn btn-primary me-2">Edit</button>
+          <button
+            type="button"
+            class="btn btn-primary me-2"
+            (click)="editDesignation(item.designationId)"
+          >
+            Edit
+          </button>
         </td>
       </tr>
     </tbody>
