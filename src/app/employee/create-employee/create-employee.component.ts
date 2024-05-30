@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {
   Designation,
   DesignationsService,
-} from '../api-handler/designations.service';
+} from '../../designation/services/designations.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
-import { Employee, EmployeesService } from '../api-handler/employees.service';
+import { Employee, EmployeesService } from '../services/employees.service';
 import { Router } from '@angular/router';
 
 @Component({

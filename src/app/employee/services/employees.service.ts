@@ -9,6 +9,13 @@ export interface Employee {
   designation: number;
   salary: number;
 }
+
+export interface Response<T> {
+  isSuccess: boolean;
+  message: string;
+  data: T;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +23,7 @@ export class EmployeesService {
   constructor(private http: HttpClient) {}
 
   getData(apiUrl: string) {
-    return this.http.get<Employee[]>(apiUrl);
+    return this.http.get<Response<Employee[]>>(apiUrl);
   }
 
   deleteEmployee(url: string) {
@@ -28,7 +35,7 @@ export class EmployeesService {
   }
 
   getEmployee(url: string) {
-    return this.http.get<Employee>(url);
+    return this.http.get<Response<Employee>>(url);
   }
 
   editEmployee(url: string, employee: Employee) {

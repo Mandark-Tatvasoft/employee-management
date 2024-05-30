@@ -1,17 +1,17 @@
 <div class="d-flex justify-content-center mt-5">
   <div class="w-50">
     <div class="d-flex justify-content-center mb-4">
-      <h3>Create Employee</h3>
+      <h3>Edit Employee</h3>
     </div>
     <form id="employeeForm" (ngSubmit)="editEmployee()">
-      <input [(ngModel)]="employee.id" name="id" type="hidden" />
+      <input [(ngModel)]="employeeDetails.data.id" name="id" type="hidden" />
       <div class="mb-3">
         <label>First Name</label>
         <input
           type="text"
           class="form-control mt-2"
           name="firstname"
-          [(ngModel)]="employee.firstname"
+          [(ngModel)]="employeeDetails.data.firstname"
         />
       </div>
       <div class="mb-3">
@@ -20,7 +20,7 @@
           type="text"
           class="form-control mt-2"
           name="lastname"
-          [(ngModel)]="employee.lastname"
+          [(ngModel)]="employeeDetails.data.lastname"
         />
       </div>
       <div class="mb-3">
@@ -29,14 +29,14 @@
           type="number"
           class="form-control mt-2"
           name="salary"
-          [(ngModel)]="employee.salary"
+          [(ngModel)]="employeeDetails.data.salary"
         />
       </div>
       <div class="mb-3">
         <label>Designation</label>
         <select
           class="form-select"
-          [(ngModel)]="employee.designation"
+          [(ngModel)]="employeeDetails.data.designation"
           name="designation"
         >
           @for(item of designations; track $index){

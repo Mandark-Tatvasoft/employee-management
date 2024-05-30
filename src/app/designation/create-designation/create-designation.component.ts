@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {
   Designation,
   DesignationsService,
-} from '../api-handler/designations.service';
+} from '../services/designations.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 

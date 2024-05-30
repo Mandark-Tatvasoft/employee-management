@@ -21,13 +21,13 @@ export class DesignationsService {
     return this.http.get<Designation>(url);
   }
 
-  createDesignation(url: string, designation: Designation) {
+  async createDesignation(url: string, designation: Designation) {
     this.http.post(url, designation).subscribe();
-    this.router.navigate(['designations']);
+    await this.router.navigate(['designations']);
   }
 
-  editDesignation(url: string, designation: Designation) {
+  async editDesignation(url: string, designation: Designation) {
     this.http.put(url, designation).subscribe();
-    this.router.navigate(['designations']);
+    await this.router.navigate(['designations']);
   }
 }

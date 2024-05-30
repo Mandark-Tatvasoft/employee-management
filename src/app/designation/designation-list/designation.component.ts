@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   Designation,
   DesignationsService,
-} from '../api-handler/designations.service';
+} from '../services/designations.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -30,10 +30,10 @@ export class DesignationComponent implements OnInit {
   }
 
   addDesignation() {
-    this.router.navigate(['addDesignation']);
+    this.router.navigate(['designations/create-designation']);
   }
 
   editDesignation(id: number) {
-    this.router.navigate(['editDesignation', id]);
+    this.router.navigate(['designations/edit-designation', id]);
   }
 }

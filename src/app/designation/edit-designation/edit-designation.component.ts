@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   Designation,
   DesignationsService,
-} from '../api-handler/designations.service';
+} from '../services/designations.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
@@ -33,7 +33,6 @@ export class EditDesignationComponent implements OnInit {
       )
       .subscribe((data) => {
         this.designation = data;
-        console.log(this.designation);
       });
   }
 

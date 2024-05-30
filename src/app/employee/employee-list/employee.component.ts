@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Employee, EmployeesService } from '../api-handler/employees.service';
+import {
+  Employee,
+  EmployeesService,
+  Response,
+} from '../services/employees.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -13,10 +17,17 @@ import { Router } from '@angular/router';
 export class EmployeeComponent implements OnInit {
   constructor(private employee: EmployeesService, private router: Router) {}
   url = 'https://localhost:7196/Employees';
-  response: Employee[] = [];
+
+  response: Response<Employee[]> = {
+    isSuccess: false,
+    message: '',
+    data: [],
+  };
+
   ngOnInit() {
     this.employee.getData(this.url + '/GetAllEmployees').subscribe((data) => {
       this.response = data;
+      console.log(data);
     });
   }
 
@@ -26,10 +37,10 @@ export class EmployeeComponent implements OnInit {
   }
 
   addEmployee() {
-    this.router.navigate(['addEmployee']);
+    this.router.navigate(['employees/create-employee']);
   }
 
   editEmployee(id: number) {
-    this.router.navigate(['editEmployee', (id = id)]);
+    this.router.navigate(['employees/edit-employee', (id = id)]);
   }
 }

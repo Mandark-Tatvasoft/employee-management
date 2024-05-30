@@ -3,8 +3,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import {
   Designation,
   DesignationsService,
-} from '../api-handler/designations.service';
-import { Employee, EmployeesService } from '../api-handler/employees.service';
+} from '../../designation/services/designations.service';
+import {
+  Employee,
+  EmployeesService,
+  Response,
+} from '../services/employees.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -25,12 +29,17 @@ export class EditEmployeeComponent implements OnInit {
 
   designations: Designation[] = [];
   id: number = 0;
-  employee: Employee = {
-    id: 0,
-    firstname: '',
-    lastname: '',
-    designation: 0,
-    salary: 0,
+
+  employeeDetails: Response<Employee> = {
+    isSuccess: false,
+    message: '',
+    data: {
+      id: 0,
+      firstname: '',
+      lastname: '',
+      designation: 0,
+      salary: 0,
+    },
   };
 
   ngOnInit() {
@@ -45,14 +54,14 @@ export class EditEmployeeComponent implements OnInit {
     this.employeeService
       .getEmployee('https://localhost:7196/Employees/GetEmployee?id=' + this.id)
       .subscribe((data) => {
-        this.employee = data;
+        this.employeeDetails = data;
       });
   }
 
   editEmployee() {
     this.employeeService.editEmployee(
       'https://localhost:7196/Employees/UpdateEmployeeDetails',
-      this.employee
+      this.employeeDetails.data
     );
     this.router.navigate(['employees']);
   }
